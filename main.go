@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"os"
 	"time"
@@ -17,12 +18,17 @@ func (silentLogger) Print(v ...interface{}) {
 	// do nothing
 }
 
-func init() {
-	mysql.SetLogger(silentLogger{})
-}
-
 var timeout = 60 * time.Second
 var interval = 1 * time.Second
+
+func init() {
+	mysql.SetLogger(silentLogger{})
+
+	flag.DurationVar(&timeout, "timeout", 60*time.Second, "total amount of time to try")
+	flag.DurationVar(&interval, "interval", 1*time.Second, "amount of time to wait between tries")
+
+	flag.Parse()
+}
 
 func main() {
 	if len(os.Args) < 2 {
