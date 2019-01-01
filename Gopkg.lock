@@ -11,11 +11,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:77ca5d02a461625805e448661be98f2526323100204c3acdb62df9ceee1aabcf"
+  digest = "1:6b74f70b9b7b5e251b21e06538fe950bcf7ed58085accff7a05030a7f1ed2a80"
   name = "github.com/jimmysawczuk/try"
   packages = ["."]
   pruneopts = "NUT"
-  revision = "fa5ffeaff43d08be41e69a2cae19f1a6d2b69a96"
+  revision = "c0311a3882c75dcf647ad836715c7315916c3810"
 
 [[projects]]
   branch = "master"
