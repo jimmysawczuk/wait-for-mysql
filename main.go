@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"log"
-	"os"
 	"time"
 
 	"github.com/go-sql-driver/mysql"
@@ -31,12 +30,11 @@ func init() {
 }
 
 func main() {
-	if len(os.Args) < 2 {
+	if len(flag.Args()) < 1 {
 		log.Fatalf("missing required argument: database connection string")
-		os.Exit(1)
 	}
 
-	connectionString := os.Args[1]
+	connectionString := flag.Arg(0)
 	start := time.Now()
 
 	log.Printf("attempting to connect to mysql (will try for %s, %s between attempts)", timeout, interval)
