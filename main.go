@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"log"
 	"time"
@@ -57,7 +58,10 @@ func connectToMySQL(connectionString string) func() error {
 
 		defer db.Close()
 
-		err = db.Ping()
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		defer cancel()
+
+		err = db.PingContext(ctx)
 		if err != nil {
 			return errors.Wrap(err, "couldn't ping")
 		}
