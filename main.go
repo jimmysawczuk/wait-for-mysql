@@ -50,6 +50,8 @@ func main() {
 
 // connectToMySQL returns a function which attempts to connect to a MySQL server and ping it using the connection string provided.
 func connectToMySQL(connectionString string) func() error {
+	timeout := 3 * time.Second
+
 	return func() error {
 		db, err := sqlx.Open("mysql", connectionString)
 		if err != nil {
@@ -58,12 +60,24 @@ func connectToMySQL(connectionString string) func() error {
 
 		defer db.Close()
 
-		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		ctx, cancel := context.WithDeadline(context.Background(), time.Now().Add(time.Second))
 		defer cancel()
 
-		err = db.PingContext(ctx)
-		if err != nil {
-			return errors.Wrap(err, "couldn't ping")
+		doneCh := make(chan error)
+
+		go func() {
+			err := db.PingContext(ctx)
+			doneCh <- err
+		}()
+
+		select {
+		case err := <-doneCh:
+			if err != nil {
+				return errors.Wrap(err, "ping")
+			}
+
+		case <-time.After(timeout):
+			return errors.New("ping: didn't return in time")
 		}
 
 		return nil
