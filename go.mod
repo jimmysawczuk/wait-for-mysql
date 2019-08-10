@@ -11,4 +11,5 @@ require (
 	github.com/mattn/go-sqlite3 v1.11.0 // indirect
 	github.com/pkg/errors v0.8.1
 	github.com/stretchr/testify v1.3.0 // indirect
+	google.golang.org/appengine v1.6.1 // indirect
 )
