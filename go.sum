@@ -1,0 +1,8 @@
+github.com/go-sql-driver/mysql v1.3.0 h1:pgwjLi/dvffoP9aabwkT3AKpXQM93QARkjFhDDqC1UE=
+github.com/go-sql-driver/mysql v1.3.0/go.mod h1:zAC/RDZ24gD3HViQzih4MyKcchzm+sOG5ZlKdlhCg5w=
+github.com/jimmysawczuk/try v0.0.0-20181213181608-c0311a3882c7 h1:HqCkUrmK/7m2x9bLJf+nSraoaFHxgflqmZgyhO5JTM8=
+github.com/jimmysawczuk/try v0.0.0-20181213181608-c0311a3882c7/go.mod h1:dBxeaubjWDUEIoYdTlsOOBZHaexVCB+L7XwGMB4JqlQ=
+github.com/jmoiron/sqlx v0.0.0-20180406164412-2aeb6a910c2b h1:eR1qlND4ShQ9W/Q56oy9c/Jj6hpqS5heEruKQVbJGNo=
+github.com/jmoiron/sqlx v0.0.0-20180406164412-2aeb6a910c2b/go.mod h1:IiEW3SEiiErVyFdH8NTuWjSifiEQKUoyK3LNqr2kCHU=
+github.com/pkg/errors v0.8.0 h1:WdK/asTD0HN+q6hsWO3/vpuAkAr+tw6aNJNDFFf0+qw=
+github.com/pkg/errors v0.8.0/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
