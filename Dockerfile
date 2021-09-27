@@ -1,7 +1,10 @@
-FROM golang:1.12 AS builder
+FROM golang:1.17 AS builder
+LABEL org.opencontainers.image.source = "https://github.com/jimmysawczuk/wait-for-mysql"
 WORKDIR /app
 COPY . .
-RUN CGO_ENABLED=0 go build -o wait-for-mysql .
+RUN CGO_ENABLED=0 go build -a -o wait-for-mysql \
+	-ldflags "-s -d" \
+	.
 
 FROM alpine
 WORKDIR /usr/bin
